@@ -29,10 +29,10 @@
 </p>
 
 <p align="center">
-  <img src=".github/assets/bay.webp" width="640" alt="The Golden Gate drawn in black dots: a sailboat crosses under the span, three cars take the deck, a gull swoops by and a motorboat wakes back across the bay, with the Context.dev mark and the line Start building with Context.dev in the sky.">
+  <img src=".github/assets/bay.webp" width="640" alt="The Golden Gate drawn in blue dots: a sailboat crosses under the span, three cars take the deck, a gull swoops by and a motorboat wakes back across the bay, with the Context.dev mark and the line Start building with Context.dev in the sky.">
 </p>
 
-<p align="center"><sub>The site's hero, one whole 15-second loop. A single picture that moves while it holds: each mover clears a halo of cells so it reads in front of the bridge.</sub></p>
+<p align="center"><sub>The site's hero, one whole 15-second loop, played here at a little over half speed. A single picture that moves while it holds: each mover clears a halo of cells so it reads in front of the bridge.</sub></p>
 
 ---
 
@@ -108,7 +108,7 @@ Four stories from [Context.dev](https://context.dev)'s product cards, rebuilt on
   </tr>
 </table>
 
-Every image here was recorded from the site in headless Chrome with a fake clock, so each frame is exactly 1/12 or 1/15 of a second after the last.
+Every image here was recorded from the site in headless Chrome with a fake clock, so the frames are evenly spaced, then slowed to about half speed so each step can be read. On the site they play at full speed.
 
 ## What it makes
 
