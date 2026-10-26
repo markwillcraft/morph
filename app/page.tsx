@@ -12,7 +12,7 @@ const QUESTIONS = [
   },
   {
     question: "Can I change a picture after it is made?",
-    answer: "Yes. Every picture is a canvas drawing in code, so ask Claude to change it, or edit the drawing yourself.",
+    answer: "Yes. Every picture is a canvas drawing in code, so ask your agent to change it, or edit the drawing yourself.",
   },
   {
     question: "Will it slow my page down?",
@@ -37,9 +37,19 @@ export default function Home() {
   return (
     <main>
       <div className="column">
-        <Top />
-        <p className="tagline">Show or describe as many pictures as you like, and Claude melts each one into the next in dots.</p>
-        <div className="strip">
+        <Top
+          current="/"
+          sections={[
+            { id: "products", label: "Products" },
+            { id: "bay", label: "The bay" },
+            { id: "use", label: "Use" },
+            { id: "install", label: "Install" },
+            { id: "limits", label: "Limits" },
+            { id: "questions", label: "Questions" },
+          ]}
+        />
+        <p className="tagline">Show or describe as many pictures as you like, and Claude or Codex melts each one into the next in dots.</p>
+        <div className="strip" id="products">
           {PRODUCTS.map(({ slug }) => (
             <ProductPiece key={slug} slug={slug} />
           ))}
@@ -62,7 +72,7 @@ export default function Home() {
         </div>
       </div>
 
-      <figure className="column hero">
+      <figure className="column hero" id="bay">
         <HeroFigure />
         <figcaption className="caption">
           The Golden Gate: a sailboat, cars, a gull and a motorboat. {(HERO.columns * HERO.rows).toLocaleString("en-US")} dots.
@@ -70,13 +80,13 @@ export default function Home() {
       </figure>
 
       <div className="column">
-        <section>
+        <section id="use">
           <h2>
             <span className="number">01</span>Use
           </h2>
           <p>
             Describe the pictures and where they go. You don&apos;t need an image to start: say what each picture shows,
-            and refine it with Claude until it reads right.
+            and refine it with your agent until it reads right. In Codex, type <code>$morph</code> instead of <code>/morph</code>.
           </p>
           <ul className="plain" style={{ marginTop: 14 }}>
             <li>
@@ -90,8 +100,8 @@ export default function Home() {
             </li>
           </ul>
           <p style={{ marginTop: 14 }}>
-            Claude draws each picture with the canvas API, reads it back into dots, checks every melt for blank frames, then
-            wires it to hover or a loop.
+            The agent draws each picture with the canvas API, reads it back into dots, checks every melt for blank frames,
+            then wires it to hover or a loop.
           </p>
         </section>
 
@@ -100,16 +110,23 @@ export default function Home() {
             <span className="number">02</span>Install
           </h2>
           <p>
-            Download <a href="/morph.zip">morph.zip</a> and unzip it into your skills folder.
+            Download <a href="/morph.zip">morph.zip</a> and unzip it into your agent&apos;s skills folder.
           </p>
           <figure className="code">
+            <figcaption>Claude Code</figcaption>
             <pre>
               <code>unzip ~/Downloads/morph.zip -d ~/.claude/skills</code>
             </pre>
           </figure>
+          <figure className="code">
+            <figcaption>Codex</figcaption>
+            <pre>
+              <code>unzip ~/Downloads/morph.zip -d ~/.agents/skills</code>
+            </pre>
+          </figure>
         </section>
 
-        <section>
+        <section id="limits">
           <h2>
             <span className="number">03</span>Limits
           </h2>
@@ -120,7 +137,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="questions">
+        <section className="questions" id="questions">
           <h2 className="ruled">
             Questions<span className="count">{QUESTIONS.length}</span>
           </h2>

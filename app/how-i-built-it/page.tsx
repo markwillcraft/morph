@@ -8,7 +8,7 @@ import { thinExampleOutput } from "@/lib/thin-example";
 export const metadata: Metadata = { title: "How I built it · Morph" };
 
 const NOTES: Record<string, string> = {
-  "SKILL.md": "the steps and rules Claude follows",
+  "SKILL.md": "the steps and rules the agent follows",
   references: "read when a step needs more",
   "references/checking.md": "blank frames, and what to look for",
   "references/melt.md": "the melt's numbers and why",
@@ -35,9 +35,11 @@ function Code({ file, children }: { file: string; children: string }) {
   );
 }
 
+const sectionId = (title: string) => title.toLowerCase().replaceAll(",", "").replaceAll(" ", "-");
+
 function Section({ number, title, children }: { number: string; title: string; children: ReactNode }) {
   return (
-    <section id={title.toLowerCase().replaceAll(" ", "-")}>
+    <section id={sectionId(title)}>
       <h2>
         <span className="number">{number}</span>
         {title}
@@ -73,7 +75,19 @@ function Tree() {
 export default function HowIBuiltIt() {
   return (
     <main className="column">
-      <Top current="/how-i-built-it" subtitle="how I built it" />
+      <Top
+        current="/how-i-built-it"
+        subtitle="how I built it"
+        sections={[
+          "The folder",
+          "Three states",
+          "Draw, then read back",
+          "The melt",
+          "Dots that ease",
+          "Thin pictures",
+          "Time in, frame out",
+        ].map((title) => ({ id: sectionId(title), label: title }))}
+      />
       <p className="tagline">
         It started as the dot illustrations on a product site: still pictures that needed to move without leaving the dot
         grid. These are the parts, in the order I built them.

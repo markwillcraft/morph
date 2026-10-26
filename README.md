@@ -1,9 +1,11 @@
 <h1 align="center">Morph</h1>
 
-<p align="center"><b>A Claude Code skill that melts dot pictures into each other.</b><br>Show or describe as many pictures as you like, and Claude melts each one into the next.<br>Every picture is a grid of dots, each one solid, a ring or gone: shapes grow necks and run together instead of fading.</p>
+<p align="center"><b>A skill for Claude Code and Codex that melts dot pictures into each other.</b><br>Show or describe as many pictures as you like, and your agent melts each one into the next.<br>Every picture is a grid of dots, each one solid, a ring or gone: shapes grow necks and run together instead of fading.</p>
 
 <p align="center">
   <a href="https://code.claude.com/docs/en/skills"><img src="https://img.shields.io/badge/Claude_Code-skill-141414?style=flat-square&logo=claude&logoColor=white" alt="Claude Code skill"></a>
+  <a href="https://learn.chatgpt.com/docs/build-skills"><img src="https://img.shields.io/badge/Codex-skill-141414?style=flat-square&logo=openai&logoColor=white" alt="Codex skill"></a>
+  <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-compatible-141414?style=flat-square" alt="Agent Skills compatible"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-141414?style=flat-square" alt="MIT license"></a>
   <a href="#how-it-works"><img src="https://img.shields.io/badge/kit_dependencies-0-141414?style=flat-square" alt="The kit has no dependencies"></a>
   <a href="#how-it-works"><img src="https://img.shields.io/badge/canvas-2D-141414?style=flat-square" alt="Canvas 2D"></a>
@@ -34,23 +36,37 @@
 
 ---
 
-Ask Claude for dot art that moves, and Morph has it draw each state as its own picture, then melt each one into the next: two for a hover, as many as the story needs for a loop. A sun becomes a moon, a padlock opens, a terminal turns into three search results. Nothing sways, twists or cross-fades: both pictures are laid into one raster, blurred and cut back to a hard edge, and every dot eases its size and fill toward the result, so edges swell and drain.
+Ask Claude or Codex for dot art that moves, and Morph has it draw each state as its own picture, then melt each one into the next: two for a hover, as many as the story needs for a loop. A sun becomes a moon, a padlock opens, a terminal turns into three search results. Nothing sways, twists or cross-fades: both pictures are laid into one raster, blurred and cut back to a hard edge, and every dot eases its size and fill toward the result, so edges swell and drain.
 
-Claude draws every picture with the canvas API, reads it back into dots, checks every melt for a frame that goes blank, and wires the result to hover, focus or a loop.
+The agent draws every picture with the canvas API, reads it back into dots, checks every melt for a frame that goes blank, and wires the result to hover, focus or a loop.
 
 ## Quick start
+
+For Claude Code:
 
 ```sh
 mkdir -p ~/.claude/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.claude/skills morph-main/skill/morph
 ```
 
-Then, in Claude Code:
+For Codex:
+
+```sh
+mkdir -p ~/.agents/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.agents/skills morph-main/skill/morph
+```
+
+Then ask for a figure. In Claude Code:
 
 ```text
 /morph a sun that melts into a moon on hover
 ```
 
-No API keys and nothing to install: the kit is plain TypeScript with no dependencies, and Claude copies it into your project.
+In Codex, the same with `$morph`:
+
+```text
+$morph a sun that melts into a moon on hover
+```
+
+No API keys and nothing to install: the kit is plain TypeScript with no dependencies, and the agent copies it into your project.
 
 ## Gallery
 
@@ -108,24 +124,31 @@ Under reduced motion a loop holds its first picture and a toggle swaps without m
 
 ## Install
 
-Morph is a standard Claude Code skill: a folder with a `SKILL.md` at its root. In this repository that folder is [`skill/morph`](skill/morph). Put it at `~/.claude/skills/morph` for you, or `.claude/skills/morph` for one project.
+Morph is a standard [Agent Skill](https://agentskills.io): a folder with a `SKILL.md` at its root. In this repository that folder is [`skill/morph`](skill/morph). Put it where your agent looks for skills:
+
+| Agent | For you | For one project | Run it with |
+|---|---|---|---|
+| **Claude Code** | `~/.claude/skills/morph` | `.claude/skills/morph` | `/morph` |
+| **Codex** | `~/.agents/skills/morph` | `.agents/skills/morph` | `$morph` |
+
+Pick one way in, and swap the folder for the one above:
 
 | | Command |
 |---|---|
-| **curl**, for you | `mkdir -p ~/.claude/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz \| tar -xz --strip-components=2 -C ~/.claude/skills morph-main/skill/morph` |
-| **curl**, for one project | `mkdir -p .claude/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz \| tar -xz --strip-components=2 -C .claude/skills morph-main/skill/morph` |
-| **git** | `git clone https://github.com/markwillcraft/morph.git && cp -r morph/skill/morph ~/.claude/skills/` |
-| **ZIP** | [Download the ZIP](https://github.com/markwillcraft/morph/archive/refs/heads/main.zip), unpack it, and move `morph-main/skill/morph` into `~/.claude/skills/`. |
+| **curl**, Claude Code | `mkdir -p ~/.claude/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz \| tar -xz --strip-components=2 -C ~/.claude/skills morph-main/skill/morph` |
+| **curl**, Codex | `mkdir -p ~/.agents/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz \| tar -xz --strip-components=2 -C ~/.agents/skills morph-main/skill/morph` |
+| **git** | `git clone https://github.com/markwillcraft/morph.git && cp -r morph/skill/morph ~/.claude/skills/` (or `~/.agents/skills/` for Codex) |
+| **ZIP** | [Download the ZIP](https://github.com/markwillcraft/morph/archive/refs/heads/main.zip), unpack it, and move `morph-main/skill/morph` into your skills folder. |
 
-The site also serves the skill on its own as `morph.zip` (built from `skill/morph` by [`scripts/zip-skill.mjs`](scripts/zip-skill.mjs)): `unzip morph.zip -d ~/.claude/skills`.
+The site also serves the skill on its own as `morph.zip` (built from `skill/morph` by [`scripts/zip-skill.mjs`](scripts/zip-skill.mjs)): `unzip morph.zip -d ~/.claude/skills`, or `-d ~/.agents/skills` for Codex.
 
-Claude Code picks up new skills in a running session. If the `skills` folder did not exist when the session started, restart it.
+Claude Code picks up new skills in a running session; if the `skills` folder did not exist when the session started, restart it. Codex lists skills under `/skills`; restart Codex if Morph does not show.
 
 ## Usage
 
-Type `/morph` and say what the pictures are and where they go. Two pictures make a hover piece; three or more make a loop or a story.
+Type `/morph` (in Codex, `$morph`) and say what the pictures are and where they go. Two pictures make a hover piece; three or more make a loop or a story.
 
-You don't need an image to start. Describe each picture in words, and Claude draws a first version; then refine it together ("thicker walls", "open the lock wider", "hold the terminal longer") until it reads right. If you do have an image or a sketch, share it and Claude draws from it.
+You don't need an image to start. Describe each picture in words, and the agent draws a first version; then refine it together ("thicker walls", "open the lock wider", "hold the terminal longer") until it reads right. If you do have an image or a sketch, share it and the agent draws from it.
 
 ```text
 /morph a sun that melts into a moon on hover
@@ -143,11 +166,11 @@ You don't need an image to start. Describe each picture in words, and Claude dra
 /morph why does the chart-to-list melt go blank halfway?
 ```
 
-You don't have to name the skill. Claude also loads it when you ask to animate dot art, make a dot illustration change on hover, loop a row of dot pictures, or fix a dot melt that flickers or goes blank.
+You don't have to name the skill. Claude Code and Codex also load it when you ask to animate dot art, make a dot illustration change on hover, loop a row of dot pictures, or fix a dot melt that flickers or goes blank.
 
 Three habits get the best results:
 
-1. **Pair pictures that share a shape.** A melt reads best when the second picture keeps some of the first's mass in place: a sun and a moon, a closed and an open lock.
+1. **Give neighbours a shared shape.** Each melt reads best when the next picture keeps some of this one's mass in place: a sun and a moon, a closed and an open lock.
 2. **Give pictures mass.** Solid shapes and ring fill melt; one-cell outlines blur away halfway. The kit's check says which.
 3. **Say where it lives.** On hover, on a loop, or as a story with steps of different lengths.
 
@@ -168,8 +191,8 @@ Three habits get the best results:
 ```text
 morph/
 ├── skill/morph/              the skill: copy this folder into your skills folder
-│   ├── SKILL.md              the steps and rules Claude follows
-│   ├── kit/                  the library Claude copies into your project
+│   ├── SKILL.md              the steps and rules the agent follows
+│   ├── kit/                  the library the agent copies into your project
 │   │   ├── grid.ts           three states per cell
 │   │   ├── paint.ts          canvas drawing to cells
 │   │   ├── melt.ts           blur and re-cut
@@ -180,7 +203,7 @@ morph/
 │   │   └── check.ts          finds a melt's emptiest frame
 │   └── references/           read when a step needs more: pictures, the melt, checking
 ├── app/                      the site (Next.js): home, collection, how I built it
-├── components/               the players: hero, hover pieces, product stories, colour switch
+├── components/               the players, sidebar and colour switch
 ├── pictures/                 the site's pictures: the bay, the collection, the products
 │   └── context/              Context.dev's product pictures and text
 └── scripts/zip-skill.mjs     packs skill/morph into public/morph.zip
