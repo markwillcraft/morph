@@ -6,10 +6,10 @@ type DotColor = "mono" | "blue";
 
 const STORAGE_KEY = "dots";
 
-/** Runs before first paint so a remembered colour never flashes the default first. */
-export const DOT_COLOR_SCRIPT = `try{if(localStorage.getItem("${STORAGE_KEY}")==="blue")document.documentElement.dataset.dots="blue"}catch(e){}`;
+/** Runs before first paint so a remembered colour never flashes the default (blue) first. */
+export const DOT_COLOR_SCRIPT = `try{if(localStorage.getItem("${STORAGE_KEY}")==="mono")document.documentElement.dataset.dots="mono"}catch(e){}`;
 
-const read = (): DotColor => (document.documentElement.dataset.dots === "blue" ? "blue" : "mono");
+const read = (): DotColor => (document.documentElement.dataset.dots === "mono" ? "mono" : "blue");
 
 const subscribe = (onChange: () => void) => {
   const changes = new MutationObserver(onChange);
@@ -18,7 +18,7 @@ const subscribe = (onChange: () => void) => {
 };
 
 function choose(color: DotColor) {
-  if (color === "blue") document.documentElement.dataset.dots = "blue";
+  if (color === "mono") document.documentElement.dataset.dots = "mono";
   else delete document.documentElement.dataset.dots;
   try {
     localStorage.setItem(STORAGE_KEY, color);
@@ -26,7 +26,7 @@ function choose(color: DotColor) {
 }
 
 export function DotColorToggle() {
-  const current = useSyncExternalStore(subscribe, read, () => "mono");
+  const current = useSyncExternalStore(subscribe, read, () => "blue");
   const blue = current === "blue";
   return (
     <button

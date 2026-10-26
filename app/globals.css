@@ -3,14 +3,15 @@
   --ink: #141414;
   --muted: #8c8c8c;
   --faint: #ececec;
-  --dots: #1a1a1a;
   --blue: #3d64e0;
+  --mono: #1a1a1a;
+  --dots: var(--blue);
   --column: 600px;
   --wide: 980px;
 }
 
-:root[data-dots="blue"] {
-  --dots: var(--blue);
+:root[data-dots="mono"] {
+  --dots: var(--mono);
 }
 
 * {
