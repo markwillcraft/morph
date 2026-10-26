@@ -103,7 +103,10 @@ interface Step {
 export interface Story {
   beats: Beat[];
   duration: number;
-  /** Where the story stands before anyone hovers it: the frame the site shows as its still. */
+  /**
+   * Where the story stands before anyone hovers it: the picture the site shows as its still, a moment before that
+   * picture starts to change, so a hover sets it moving at once.
+   */
   rest: number;
   write: (ink: Ink, seconds: number) => void;
 }
@@ -217,7 +220,7 @@ const search = story(
     },
     { picture: RESULTS_FILLED, hold: 0.1, builds: { seconds: 0.5, order: (column) => column / columns } },
   ],
-  { step: 2, held: 2.4 },
+  { step: 2, held: 3.5 },
 );
 
 // ── Scrape: a scan runs down a live page, reading its rings into solid dots; the page melts into a window, which
@@ -281,7 +284,7 @@ const scrape = story(
     ...FORMATS.map((format, index) => formatStep(format, index === 0)),
     { picture: BLANK_WINDOW, hold: 0.1, builds: { seconds: 0.5, order: topToBottom } },
   ],
-  { step: 0, held: 0 },
+  { step: 0, held: 0.45 },
 );
 
 // ── Research: the question is typed into its bubble and the bubble thinks; it melts into the sources, read one after
@@ -349,7 +352,7 @@ const research = story(
       },
     },
   ],
-  { step: 3, held: 2.6 },
+  { step: 3, held: 3.5 },
 );
 
 // ── Monitor: the clock's hand goes round once, a check landing at each quarter; the last check finds a change, and
@@ -405,7 +408,7 @@ const monitor = story(
         ),
     },
   ],
-  { step: 2, held: 2.8 },
+  { step: 2, held: 3.9 },
 );
 
 export interface Product {
