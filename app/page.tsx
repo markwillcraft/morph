@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { HeroFigure } from "@/components/hero-figure";
 import { ProductPiece } from "@/components/product-piece";
+import { CopyButton } from "@/components/copy-button";
 import { Top } from "@/components/top";
+import { INSTALL_COMMANDS, INSTALL_PROMPT } from "@/lib/install";
 import { HERO } from "@/pictures/hero";
 import { PRODUCTS } from "@/pictures/products";
 
@@ -32,6 +34,20 @@ const QUESTIONS = [
     answer: "Give pictures mass. Solid shapes and ring fills melt well; one-cell outlines blur away halfway, and the kit's check will tell you.",
   },
 ];
+
+function CodeBlock({ caption, text, copyLabel }: { caption: string; text: string; copyLabel?: string }) {
+  return (
+    <figure className="code">
+      <figcaption>
+        {caption}
+        <CopyButton text={text} label={copyLabel} />
+      </figcaption>
+      <pre>
+        <code>{text}</code>
+      </pre>
+    </figure>
+  );
+}
 
 export default function Home() {
   return (
@@ -99,21 +115,15 @@ export default function Home() {
           <h2>
             <span className="number">02</span>Install
           </h2>
-          <p>
-            Download <a href="/morph.zip">morph.zip</a> and unzip it into your agent&apos;s skills folder.
+          <p>The quickest way: copy this prompt into Claude Code or Codex, and your agent downloads and installs Morph.</p>
+          <CodeBlock caption="Prompt" text={INSTALL_PROMPT} copyLabel="Copy prompt" />
+          <p style={{ marginTop: 20 }}>Or run the command for your agent yourself:</p>
+          <CodeBlock caption="Claude Code" text={INSTALL_COMMANDS.claude} />
+          <CodeBlock caption="Codex" text={INSTALL_COMMANDS.codex} />
+          <p style={{ marginTop: 20 }}>
+            Or download <a href="/morph.zip">morph.zip</a> and unzip it into your agent&apos;s skills folder:{" "}
+            <code>~/.claude/skills</code> for Claude Code, <code>~/.agents/skills</code> for Codex.
           </p>
-          <figure className="code">
-            <figcaption>Claude Code</figcaption>
-            <pre>
-              <code>unzip ~/Downloads/morph.zip -d ~/.claude/skills</code>
-            </pre>
-          </figure>
-          <figure className="code">
-            <figcaption>Codex</figcaption>
-            <pre>
-              <code>unzip ~/Downloads/morph.zip -d ~/.agents/skills</code>
-            </pre>
-          </figure>
         </section>
 
         <section id="limits">

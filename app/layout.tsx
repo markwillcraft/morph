@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DOT_COLOR_SCRIPT } from "@/components/dot-color";
+import { InstallCard } from "@/components/install-card";
 import { rethinkSans } from "./fonts";
 import "./globals.css";
 
@@ -14,7 +15,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: DOT_COLOR_SCRIPT }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <InstallCard />
+      </body>
     </html>
   );
 }

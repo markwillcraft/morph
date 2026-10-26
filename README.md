@@ -95,7 +95,7 @@ Four stories from [Context.dev](https://context.dev)'s product cards, rebuilt on
   <img src=".github/assets/collection-hover.webp" width="640" alt="The six collection covers, each melting under the pointer and back: a padlock opens to let requests through, orbits close round a thought, three pages fuse into one, two agent icons become the Context.dev mark, image tiles join into one picture, and a source page becomes records.">
 </p>
 
-<p align="center"><sub>The <a href="app/collection/page.tsx">collection</a>: Context.dev's six blog covers, each melting into its second picture on hover. The scenes are drawn in greys with the canvas API and read into dots at both ends.</sub></p>
+<p align="center"><sub>The <a href="app/collection/page.tsx">collection</a> holds the four stories above and Context.dev's six blog covers, each melting into its second picture on hover. The scenes are drawn in greys with the canvas API and read into dots at both ends.</sub></p>
 
 <table>
   <tr>
@@ -131,7 +131,22 @@ Morph is a standard [Agent Skill](https://agentskills.io): a folder with a `SKIL
 | **Claude Code** | `~/.claude/skills/morph` | `.claude/skills/morph` | `/morph` |
 | **Codex** | `~/.agents/skills/morph` | `.agents/skills/morph` | `$morph` |
 
-Pick one way in, and swap the folder for the one above:
+The quickest way is to let your agent do it. Paste this into Claude Code or Codex (the site has a **Copy prompt** button for it):
+
+```text
+Install the Morph skill for me from https://github.com/markwillcraft/morph.
+
+1. Work out which agent you are and use its personal skills folder:
+   - Claude Code: ~/.claude/skills
+   - Codex: ~/.agents/skills
+2. Download the repository and put only its skill/morph folder there, as <skills folder>/morph, replacing any older copy. Run the one command for your agent:
+   - Claude Code: mkdir -p ~/.claude/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.claude/skills morph-main/skill/morph
+   - Codex: mkdir -p ~/.agents/skills && curl -L https://github.com/markwillcraft/morph/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 -C ~/.agents/skills morph-main/skill/morph
+3. Check that <skills folder>/morph/SKILL.md exists, and list the folder so I can see it.
+4. Tell me how to start: /morph in Claude Code, $morph in Codex. If the skill doesn't show up, tell me to restart the app.
+```
+
+Or pick one of these, and swap the folder for the one above:
 
 | | Command |
 |---|---|

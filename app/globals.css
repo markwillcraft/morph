@@ -450,3 +450,119 @@ footer p + p {
     display: none;
   }
 }
+
+.code figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.copy {
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.copy:hover {
+  color: var(--ink);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--muted);
+}
+
+.button-primary {
+  border-color: var(--dots);
+  background: var(--dots);
+  color: var(--paper);
+}
+
+.button-primary:hover {
+  border-color: var(--dots);
+  opacity: 0.88;
+}
+
+.install-card {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  width: 300px;
+  padding: 16px 18px;
+  border: 1px solid var(--faint);
+  border-radius: 12px;
+  background: var(--paper);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 0.08);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.install-card-title {
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+.install-card-body {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.install-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.install-card-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.install-card-close:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 480px) {
+  .install-card {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+  }
+}
+
+.pieces-heading {
+  margin: 56px 0 0;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.pieces-heading + .pieces {
+  margin-top: 24px;
+}
