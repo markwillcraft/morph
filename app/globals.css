@@ -541,9 +541,9 @@ footer p + p {
 .install-card-field {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   margin-top: 12px;
-  padding: 4px 4px 4px 10px;
+  padding: 2px 2px 2px 9px;
   border: 1px solid var(--faint);
   border-radius: 999px;
   background: var(--faint);
@@ -556,19 +556,22 @@ footer p + p {
   background: none;
   color: var(--muted);
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 12px;
+  font-size: 11px;
   text-overflow: ellipsis;
   outline: none;
   pointer-events: none;
 }
 
 .install-card-field .button {
-  height: 26px;
+  height: 22px;
+  padding: 0 10px;
+  font-size: 12px;
 }
 
 .install-card-alt {
   margin-top: 10px;
   color: var(--muted);
+  text-align: center;
 }
 
 .install-card-close {
