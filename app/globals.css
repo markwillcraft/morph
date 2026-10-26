@@ -419,8 +419,7 @@ footer p + p {
     color: var(--muted);
   }
 
-  .sidebar nav,
-  .sidebar-group {
+  .sidebar nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -446,13 +445,8 @@ footer p + p {
     font-weight: 600;
   }
 
-  .sidebar-switch {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .top nav {
+  /* The sidebar lists the pages; the header keeps only the colour switch. */
+  .top-page {
     display: none;
   }
 }

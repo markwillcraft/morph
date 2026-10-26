@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { DotColorToggle } from "./dot-color";
 import { PAGES, type PageHref, type SidebarSection } from "./pages";
 
 /** Follows the section nearest the top of the screen, so the sidebar can mark where the reader is. */
@@ -28,7 +27,7 @@ function useCurrentSection(sections: SidebarSection[]) {
   return current;
 }
 
-/** Pages, this page's sections, the dot colour and the downloads, beside the column on wide screens. */
+/** Pages, this page's sections and the downloads, beside the column on wide screens. */
 export function Sidebar({ current, sections = [] }: { current: PageHref; sections?: SidebarSection[] }) {
   const reading = useCurrentSection(sections);
   return (
@@ -53,13 +52,6 @@ export function Sidebar({ current, sections = [] }: { current: PageHref; section
           ))}
         </nav>
       )}
-      <div className="sidebar-group">
-        <p className="sidebar-heading">Dots</p>
-        <label className="sidebar-switch">
-          <DotColorToggle />
-          <span>Blue</span>
-        </label>
-      </div>
       <nav aria-label="Get it">
         <p className="sidebar-heading">Get it</p>
         <a href="/morph.zip">morph.zip</a>

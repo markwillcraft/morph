@@ -26,7 +26,7 @@ export function Top({
         </h1>
         <nav>
           {PAGES.filter(({ href }) => href !== "/").map(({ href, label }) => (
-            <Link key={href} href={href} aria-current={href === current ? "page" : undefined}>
+            <Link key={href} href={href} className="top-page" aria-current={href === current ? "page" : undefined}>
               {label}
             </Link>
           ))}
