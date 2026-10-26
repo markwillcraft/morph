@@ -65,9 +65,6 @@ export default function Home() {
             <span>/morph</span>
             <a href="#install">Install ↓</a>
           </p>
-          <p>
-            Built by <a href="https://x.com/iangerado">Ian Gerado</a>
-          </p>
         </div>
         <div className="prose">
           <p>

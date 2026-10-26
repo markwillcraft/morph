@@ -5,7 +5,7 @@ export function PieceCaption({ name, prompt }: { name: string; prompt?: string }
   return (
     <figcaption className="piece-caption">
       <span>{name}</span>
-      {prompt && <CopyButton text={prompt} label="Copy prompt" className="copy-chip" icon />}
+      {prompt && <CopyButton text={prompt} label="Copy" className="copy-chip" icon />}
     </figcaption>
   );
 }

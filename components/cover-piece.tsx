@@ -17,6 +17,11 @@ const REWIND_LOOKAHEAD_SECONDS = 0.2;
 const RESTING_SPIN_DISTANCE = 0.004;
 const RESTING_SPIN_VELOCITY = 0.02;
 const LONGEST_STEP = 0.05;
+// Each frame of the scene is cut to whole dots, so dots ease toward it more slowly than the kit's default: edges glide
+// across cells instead of stepping. Below 1 slows the easing.
+const DOT_EASING = 0.3;
+// How long the dots get to ease home before the last frame is drawn exactly and the player sleeps.
+const SETTLE_SECONDS = 0.5;
 
 function playCover(canvas: HTMLCanvasElement, slug: BlogCoverMotif) {
   const context = canvas.getContext("2d")!;
@@ -50,6 +55,7 @@ function playCover(canvas: HTMLCanvasElement, slug: BlogCoverMotif) {
   let restingSpin = 0;
   let frame = 0;
   let last = 0;
+  let homeFor = 0;
 
   const tick = (now: number) => {
     const step = last ? Math.min((now - last) / 1000, LONGEST_STEP) : 0;
@@ -67,12 +73,14 @@ function playCover(canvas: HTMLCanvasElement, slug: BlogCoverMotif) {
       morph === 0 &&
       Math.abs(spin - restingSpin) < RESTING_SPIN_DISTANCE &&
       Math.abs(spinVelocity) < RESTING_SPIN_VELOCITY;
-    field.ease(home ? resting : coverAt(slug, morph, spin), step);
+    field.ease(home ? resting : coverAt(slug, morph, spin), step * DOT_EASING);
     paint();
-    if (home) {
+    homeFor = home ? homeFor + step : 0;
+    if (homeFor > SETTLE_SECONDS) {
       field.place(resting);
       paint();
       spin = spinVelocity = restingSpin = 0;
+      homeFor = 0;
       frame = 0;
       return;
     }

@@ -666,6 +666,10 @@ footer p + p {
   font: inherit;
   font-size: 12px;
   cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background-color 0.15s;
 }
 
 .copy-chip:hover {
