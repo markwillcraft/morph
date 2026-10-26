@@ -1,5 +1,5 @@
-import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { join, relative } from "node:path";
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, relative } from "node:path";
 import { crc32 } from "node:zlib";
 
 const SOURCE = "skill/morph";
@@ -53,5 +53,7 @@ end.writeUInt16LE(centrals.length / 2, 10);
 end.writeUInt32LE(directory.length, 12);
 end.writeUInt32LE(offset, 16);
 
+// public/ holds nothing tracked but this zip, so a fresh checkout has no folder to write into.
+mkdirSync(dirname(OUTPUT), { recursive: true });
 writeFileSync(OUTPUT, Buffer.concat([...locals, directory, end]));
 console.log(`${OUTPUT}: ${centrals.length / 2} files`);
