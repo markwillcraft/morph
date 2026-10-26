@@ -609,3 +609,28 @@ footer p + p {
 .pieces-heading + .pieces {
   margin-top: 24px;
 }
+
+/* A row of hollow dots above and below the product row, in the dots' colour, as a divider. */
+.strip {
+  position: relative;
+  padding: 32px 0;
+}
+
+.strip::before,
+.strip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: radial-gradient(circle at 4px 4px, transparent 1.9px, var(--dots) 2.3px, var(--dots) 3.2px, transparent 3.6px) 0 0 / 10px 8px repeat-x;
+  opacity: 0.35;
+}
+
+.strip::before {
+  top: 0;
+}
+
+.strip::after {
+  bottom: 0;
+}
