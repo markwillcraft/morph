@@ -37,17 +37,7 @@ export default function Home() {
   return (
     <main>
       <div className="column">
-        <Top
-          current="/"
-          sections={[
-            { id: "products", label: "Products" },
-            { id: "bay", label: "The bay" },
-            { id: "use", label: "Use" },
-            { id: "install", label: "Install" },
-            { id: "limits", label: "Limits" },
-            { id: "questions", label: "Questions" },
-          ]}
-        />
+        <Top current="/" />
         <p className="tagline">Show or describe as many pictures as you like, and Claude or Codex melts each one into the next in dots.</p>
         <div className="strip" id="products">
           {PRODUCTS.map(({ slug }) => (

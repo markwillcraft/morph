@@ -5,8 +5,3 @@ export const PAGES = [
 ] as const;
 
 export type PageHref = (typeof PAGES)[number]["href"];
-
-export interface SidebarSection {
-  id: string;
-  label: string;
-}

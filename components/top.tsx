@@ -1,22 +1,14 @@
 import Link from "next/link";
 import { DotColorToggle } from "./dot-color";
-import { PAGES, type PageHref, type SidebarSection } from "./pages";
+import { PAGES, type PageHref } from "./pages";
 import { Sidebar } from "./sidebar";
 
 export const SUBTITLE = "a skill for Claude Code and Codex";
 
-export function Top({
-  current,
-  subtitle = SUBTITLE,
-  sections,
-}: {
-  current: PageHref;
-  subtitle?: string;
-  sections?: SidebarSection[];
-}) {
+export function Top({ current, subtitle = SUBTITLE }: { current: PageHref; subtitle?: string }) {
   return (
     <>
-      <Sidebar current={current} sections={sections} />
+      <Sidebar current={current} />
       <header className="top">
         <h1>
           <Link href="/" style={{ textDecoration: "none" }}>

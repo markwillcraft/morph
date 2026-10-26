@@ -75,19 +75,7 @@ function Tree() {
 export default function HowIBuiltIt() {
   return (
     <main className="column">
-      <Top
-        current="/how-i-built-it"
-        subtitle="how I built it"
-        sections={[
-          "The folder",
-          "Three states",
-          "Draw, then read back",
-          "The melt",
-          "Dots that ease",
-          "Thin pictures",
-          "Time in, frame out",
-        ].map((title) => ({ id: sectionId(title), label: title }))}
-      />
+      <Top current="/how-i-built-it" subtitle="how I built it" />
       <p className="tagline">
         It started as the dot illustrations on a product site: still pictures that needed to move without leaving the dot
         grid. These are the parts, in the order I built them.
