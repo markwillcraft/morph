@@ -130,7 +130,7 @@ a:hover {
 .strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 16px;
   margin-top: 40px;
 }
 
@@ -395,7 +395,7 @@ footer p + p {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 480px) {
   .strip {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -39,13 +39,11 @@ export default function Home() {
       <div className="column">
         <Top />
         <p className="tagline">Give Claude two pictures, and it melts one into the other in dots.</p>
-      </div>
-      <div className="wide strip">
-        {PRODUCTS.map(({ slug }) => (
-          <ProductPiece key={slug} slug={slug} />
-        ))}
-      </div>
-      <div className="column">
+        <div className="strip">
+          {PRODUCTS.map(({ slug }) => (
+            <ProductPiece key={slug} slug={slug} />
+          ))}
+        </div>
         <div className="meta">
           <p>
             <span>/morph</span>
