@@ -642,15 +642,19 @@ footer p + p {
   bottom: 0;
 }
 
-.piece-caption {
+/* The name and the Copy pill share one 24px line, centred on each other. */
+.pieces .piece-caption {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
+  font-size: 13px;
+  line-height: 24px;
 }
 
-.piece-caption {
-  align-items: center;
+.piece-caption .copy-chip {
+  font-size: 13px;
+  line-height: 1;
 }
 
 .copy-chip {
