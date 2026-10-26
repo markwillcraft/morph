@@ -43,12 +43,13 @@ export function InstallCard() {
         Paste one prompt into Claude Code or Codex and it installs Morph for you. Then use <code>/morph</code> or{" "}
         <code>$morph</code>.
       </p>
-      <div className="install-card-actions">
-        <CopyButton text={INSTALL_PROMPT} label="Copy prompt" className="button button-primary" />
-        <a className="button" href="/morph.zip" download>
-          Download ZIP
-        </a>
+      <div className="install-card-field">
+        <input type="text" readOnly value={INSTALL_PROMPT.replace(/\s+/g, " ")} aria-label="Install prompt" tabIndex={-1} />
+        <CopyButton text={INSTALL_PROMPT} label="Copy" className="button button-primary" />
       </div>
+      <p className="install-card-alt">
+        Or <a href="/morph.zip">download the ZIP</a>.
+      </p>
     </aside>
   );
 }

@@ -261,6 +261,19 @@ code {
   font-size: inherit;
 }
 
+/* Three window dots, so a block reads as a terminal. */
+.code pre::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 10px;
+  margin-bottom: 14px;
+  background:
+    radial-gradient(circle at 5px 5px, #ff5f57 4.5px, transparent 5px),
+    radial-gradient(circle at 22px 5px, #febc2e 4.5px, transparent 5px),
+    radial-gradient(circle at 39px 5px, #28c840 4.5px, transparent 5px);
+}
+
 .dots {
   display: block;
   width: 100%;
@@ -525,10 +538,37 @@ footer p + p {
   color: var(--muted);
 }
 
-.install-card-actions {
+.install-card-field {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 6px;
   margin-top: 12px;
+  padding: 4px 4px 4px 10px;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  background: var(--faint);
+}
+
+.install-card-field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  outline: none;
+  pointer-events: none;
+}
+
+.install-card-field .button {
+  height: 26px;
+}
+
+.install-card-alt {
+  margin-top: 10px;
+  color: var(--muted);
 }
 
 .install-card-close {
