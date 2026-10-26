@@ -2,7 +2,7 @@
 
 import type { Grid, Picture } from "@kit/grid";
 import { playToggle } from "@kit/play";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 export interface TogglePictures {
   rest: Picture;
@@ -10,7 +10,17 @@ export interface TogglePictures {
 }
 
 /** A dot picture that melts to its other picture while it is hovered, focused or pressed. */
-export function DotToggle({ grid, name, load, caption = false }: { grid: Grid; name: string; load: () => Promise<TogglePictures>; caption?: boolean }) {
+export function DotToggle({
+  grid,
+  name,
+  load,
+  caption,
+}: {
+  grid: Grid;
+  name: string;
+  load: () => Promise<TogglePictures>;
+  caption?: ReactNode;
+}) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const player = useRef<ReturnType<typeof playToggle> | null>(null);
   const loader = useRef(load);
@@ -46,7 +56,7 @@ export function DotToggle({ grid, name, load, caption = false }: { grid: Grid; n
       >
         <canvas ref={canvas} className="dots" style={{ aspectRatio: `${grid.columns} / ${grid.rows}` }} />
       </button>
-      {caption && <figcaption>{name}</figcaption>}
+      {caption}
     </figure>
   );
 }

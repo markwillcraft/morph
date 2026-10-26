@@ -5,6 +5,7 @@ import { Loop } from "@kit/loop";
 import { useEffect, useRef } from "react";
 import { doto } from "@/app/fonts";
 import { PRODUCT, PRODUCT_PITCH, PRODUCTS, type Ink, type Story } from "@/pictures/products";
+import { PieceCaption } from "./piece-caption";
 
 // Longer than this between frames and the dots are placed outright instead of eased.
 const LONGEST_STEP = 0.1;
@@ -105,7 +106,7 @@ function playStory(canvas: HTMLCanvasElement, story: Story) {
   };
 }
 
-export function ProductPiece({ slug }: { slug: string }) {
+export function ProductPiece({ slug, withPrompt = false }: { slug: string; withPrompt?: boolean }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const player = useRef<ReturnType<typeof playStory> | null>(null);
   const product = PRODUCTS.find((product) => product.slug === slug);
@@ -139,7 +140,11 @@ export function ProductPiece({ slug }: { slug: string }) {
       >
         <canvas ref={canvas} className={`dots ${doto.className}`} style={{ aspectRatio: `${PRODUCT.columns} / ${PRODUCT.rows}` }} />
       </button>
-      <figcaption>{product.name}</figcaption>
+      {withPrompt ? (
+        <PieceCaption name={product.name} prompt={`/morph ${product.description}. Play it on hover.`} />
+      ) : (
+        <figcaption>{product.name}</figcaption>
+      )}
     </figure>
   );
 }

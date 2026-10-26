@@ -38,13 +38,13 @@ const QUESTIONS = [
 function CodeBlock({ caption, text, copyLabel }: { caption: string; text: string; copyLabel?: string }) {
   return (
     <figure className="code">
-      <figcaption>
-        {caption}
-        <CopyButton text={text} label={copyLabel} />
-      </figcaption>
-      <pre>
-        <code>{text}</code>
-      </pre>
+      <figcaption>{caption}</figcaption>
+      <div className="code-card">
+        <pre>
+          <code>{text}</code>
+        </pre>
+        <CopyButton text={text} label={copyLabel} className="copy code-copy" />
+      </div>
     </figure>
   );
 }

@@ -411,12 +411,14 @@ const monitor = story(
 export interface Product {
   slug: string;
   name: string;
+  /** The story, as a /morph prompt would describe it. */
+  description: string;
   story: Story;
 }
 
 export const PRODUCTS: Product[] = [
-  { slug: "search", name: "Search", story: search },
-  { slug: "scrape", name: "Scrape", story: scrape },
-  { slug: "research", name: "Research", story: research },
-  { slug: "monitor", name: "Monitor", story: monitor },
+  { slug: "search", name: "Search", description: "a story for a search card: a question typed at an old computer terminal, a key going down with each letter, then the terminal melts into three ranked results that are read one at a time", story: search },
+  { slug: "scrape", name: "Scrape", description: "a story for a scrape card: a scan runs down a web page and reads it, then the page melts into a window that steps through Markdown, HTML, JSON, images, a screenshot and highlights", story: scrape },
+  { slug: "research", name: "Research", description: "a story for a research card: a question typed into a speech bubble that thinks, which melts into three sources read in turn, then braces with the answer written between them", story: research },
+  { slug: "monitor", name: "Monitor", description: "a story for a monitor card: a clock whose hand goes round with a check each quarter, then on a price change it melts into a ringing bell beside a notice of what changed", story: monitor },
 ];

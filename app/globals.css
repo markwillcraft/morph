@@ -464,10 +464,16 @@ footer p + p {
   }
 }
 
-.code figcaption {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.code-card {
+  position: relative;
+}
+
+/* Level with the window dots, in the card's top right corner. */
+.code-copy {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 12px;
 }
 
 .copy {
@@ -633,4 +639,36 @@ footer p + p {
 
 .strip::after {
   bottom: 0;
+}
+
+.piece-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.piece-caption {
+  align-items: center;
+}
+
+.copy-chip {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  background: var(--faint);
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.copy-chip:hover {
+  border-color: var(--muted);
+  color: var(--ink);
 }
