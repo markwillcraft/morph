@@ -523,7 +523,7 @@ footer p + p {
   border: 1px solid var(--faint);
   border-radius: 12px;
   background: var(--paper);
-  box-shadow: 0 8px 28px rgb(0 0 0 / 0.08);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.05);
   font-size: 13px;
   line-height: 1.5;
 }

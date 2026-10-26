@@ -70,7 +70,11 @@ No API keys and nothing to install: the kit is plain TypeScript with no dependen
 
 ## Gallery
 
-Four stories from [Context.dev](https://context.dev)'s product cards, rebuilt on Morph's kit. Each is several pictures in a row, played while it is hovered; most steps melt into the next, and a few are built in dot by dot.
+Everything here is on the site's [collection](app/collection/page.tsx) page, which has two shelves: four stories and six pairs. All of it is [Context.dev](https://context.dev)'s artwork, rebuilt on Morph's kit.
+
+### Stories
+
+Context.dev's four product cards. Each is several pictures in a row, played while it is hovered; most steps melt into the next, and a few are built in dot by dot. The same four sit at the top of the home page.
 
 <table>
   <tr>
@@ -91,11 +95,15 @@ Four stories from [Context.dev](https://context.dev)'s product cards, rebuilt on
   </tr>
 </table>
 
+### Pairs
+
+Context.dev's six blog covers. Each melts into its second picture on hover and back when the pointer leaves.
+
 <p align="center">
   <img src=".github/assets/collection-hover.webp" width="640" alt="The six collection covers, each melting under the pointer and back: a padlock opens to let requests through, orbits close round a thought, three pages fuse into one, two agent icons become the Context.dev mark, image tiles join into one picture, and a source page becomes records.">
 </p>
 
-<p align="center"><sub>The <a href="app/collection/page.tsx">collection</a> holds the four stories above and Context.dev's six blog covers, each melting into its second picture on hover. The scenes are drawn in greys with the canvas API and read into dots at both ends.</sub></p>
+<p align="center"><sub>Blocked to let through, orbits to a thought, pages to one page, two agents to one, tiles to one picture, source to records. Each cover scene is drawn in greys with the canvas API at both ends of its hover, and read into dots.</sub></p>
 
 <table>
   <tr>
@@ -116,9 +124,9 @@ Three kinds of figure, all on one kit.
 
 | Kind | What it is | Kit | On the site |
 |---|---|---|---|
-| **Toggle** | Two pictures. Hover, focus or press melts to the second; letting go melts back. It only draws while dots are moving. | `playToggle(canvas, grid, rest, active)` | the [collection](app/collection/page.tsx) |
+| **Toggle** | Two pictures. Hover, focus or press melts to the second; letting go melts back. It only draws while dots are moving. | `playToggle(canvas, grid, rest, active)` | the collection's [six pairs](pictures/collection.ts) |
 | **Loop** | A row of beats, each a picture that is a pure function of time. Each holds, then melts into the next, and the last melts into the first. It pauses off screen. | `playLoop(canvas, grid, new Loop(grid, beats))` | the [bay](pictures/hero.ts) |
-| **Story** | A loop where each beat sets its own hold and melt, so one picture can stay while a question is typed and the next can arrive at once. | `Beat.hold`, `Beat.melt` | the [four products](pictures/products.ts) |
+| **Story** | A loop where each beat sets its own hold and melt, so one picture can stay while a question is typed and the next can arrive at once. | `Beat.hold`, `Beat.melt` | the [four stories](pictures/products.ts), on the home page and in the collection |
 
 Under reduced motion a loop holds its first picture and a toggle swaps without melting.
 
@@ -219,7 +227,7 @@ morph/
 │   └── references/           read when a step needs more: pictures, the melt, checking
 ├── app/                      the site (Next.js): home, collection, how I built it
 ├── components/               the players, sidebar and colour switch
-├── pictures/                 the site's pictures: the bay, the collection, the products
+├── pictures/                 the site's pictures: the bay, the six pairs, the four stories
 │   └── context/              Context.dev's product pictures, text and blog cover scenes
 └── scripts/zip-skill.mjs     packs skill/morph into public/morph.zip
 ```
