@@ -108,7 +108,7 @@ Four stories from [Context.dev](https://context.dev)'s product cards, rebuilt on
   </tr>
 </table>
 
-Every image here was recorded from the site in headless Chrome with a fake clock, so the frames are evenly spaced, then slowed to about half speed so each step can be read. On the site they play at full speed.
+Every image here was recorded from the site in headless Chrome with a fake clock, at 40 frames a second with lossless compression, then slowed to about half speed so each step can be read. On the site they play at full speed.
 
 ## What it makes
 
