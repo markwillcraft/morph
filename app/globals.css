@@ -471,9 +471,9 @@ footer p + p {
 /* Level with the window dots, in the card's top right corner. */
 .code-copy {
   position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 12px;
+  top: 9px;
+  right: 12px;
+  background: var(--paper);
 }
 
 .copy {
@@ -675,4 +675,14 @@ footer p + p {
 .copy-chip:hover {
   border-color: var(--muted);
   color: var(--ink);
+}
+
+/* On the grey code card, the copy pill sits on the page's white. */
+.code-card .copy-chip {
+  border-color: var(--paper);
+  background: var(--paper);
+}
+
+.code-card .copy-chip:hover {
+  border-color: var(--muted);
 }

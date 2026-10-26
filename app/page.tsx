@@ -35,7 +35,7 @@ const QUESTIONS = [
   },
 ];
 
-function CodeBlock({ caption, text, copyLabel }: { caption: string; text: string; copyLabel?: string }) {
+function CodeBlock({ caption, text }: { caption: string; text: string }) {
   return (
     <figure className="code">
       <figcaption>{caption}</figcaption>
@@ -43,7 +43,7 @@ function CodeBlock({ caption, text, copyLabel }: { caption: string; text: string
         <pre>
           <code>{text}</code>
         </pre>
-        <CopyButton text={text} label={copyLabel} className="copy code-copy" />
+        <CopyButton text={text} className="copy-chip code-copy" icon />
       </div>
     </figure>
   );
@@ -113,7 +113,7 @@ export default function Home() {
             <span className="number">02</span>Install
           </h2>
           <p>The quickest way: copy this prompt into Claude Code or Codex, and your agent downloads and installs Morph.</p>
-          <CodeBlock caption="Prompt" text={INSTALL_PROMPT} copyLabel="Copy prompt" />
+          <CodeBlock caption="Prompt" text={INSTALL_PROMPT} />
           <p style={{ marginTop: 20 }}>Or run the command for your agent yourself:</p>
           <CodeBlock caption="Claude Code" text={INSTALL_COMMANDS.claude} />
           <CodeBlock caption="Codex" text={INSTALL_COMMANDS.codex} />
