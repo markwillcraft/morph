@@ -11,8 +11,8 @@ A picture is a grid of cells, each solid, a ring or empty. Motion is always one 
 
 1. **Copy the kit.** Copy `kit/` into the project (for example `lib/morph/`). It has no dependencies.
 2. **Fix the grid.** Pick `columns × rows` once per figure. Every picture in a figure shares it. Around 40 × 30 suits an icon, 160 × 100 a hero.
-3. **Draw each picture** with `pictureFromCanvas(grid, draw)`. Draw in cell units: black ink is a solid dot, white ink a ring, bare canvas nothing. Solid for structure, rings for fill. See `references/pictures.md`.
-4. **Pair pictures that share a shape.** The melt reads best when the second picture keeps some of the first's mass in place: sun and moon, closed and open lock.
+3. **Draw each picture**, from the user's images if they gave any, or from their words if not: a description is enough for a first version, then refine it with them. Use `pictureFromCanvas(grid, draw)`. Draw in cell units: black ink is a solid dot, white ink a ring, bare canvas nothing. Solid for structure, rings for fill. See `references/pictures.md`.
+4. **Give neighbours a shared shape.** However many pictures there are, each melt reads best when the next picture keeps some of this one's mass in place: sun and moon, closed and open lock, a terminal and the results it shows.
 5. **Check every melt** with `thinnestMeltFrame(grid, from, to)`. Anything under `THINNEST_SHARE` goes blank mid-melt: thicken lines to two or three cells or add ring fill, then check again. See `references/checking.md`.
 6. **Wire it up.**
    - Hover or press: `playToggle(canvas, grid, rest, active)`, then call `point(true)` / `point(false)` from pointer and focus events.

@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Morph · a skill for Claude Code",
-  description: "Give Claude two pictures, and it melts one into the other in dots.",
+  description: "Show or describe as many pictures as you like, and Claude melts each one into the next in dots.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

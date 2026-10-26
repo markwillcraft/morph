@@ -38,7 +38,7 @@ export default function Home() {
     <main>
       <div className="column">
         <Top />
-        <p className="tagline">Give Claude two pictures, and it melts one into the other in dots.</p>
+        <p className="tagline">Show or describe as many pictures as you like, and Claude melts each one into the next in dots.</p>
         <div className="strip">
           {PRODUCTS.map(({ slug }) => (
             <ProductPiece key={slug} slug={slug} />
@@ -74,7 +74,10 @@ export default function Home() {
           <h2>
             <span className="number">01</span>Use
           </h2>
-          <p>Describe the pictures and where they go.</p>
+          <p>
+            Describe the pictures and where they go. You don&apos;t need an image to start: say what each picture shows,
+            and refine it with Claude until it reads right.
+          </p>
           <ul className="plain" style={{ marginTop: 14 }}>
             <li>
               <code>/morph a sun that melts into a moon on hover</code>

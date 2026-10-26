@@ -1,6 +1,6 @@
 <h1 align="center">Morph</h1>
 
-<p align="center"><b>A Claude Code skill that melts dot pictures into each other.</b><br>Every picture is a grid of dots, each one solid, a ring or gone. Motion is one picture pouring into the next:<br>shapes grow necks and run together instead of fading.</p>
+<p align="center"><b>A Claude Code skill that melts dot pictures into each other.</b><br>Show or describe as many pictures as you like, and Claude melts each one into the next.<br>Every picture is a grid of dots, each one solid, a ring or gone: shapes grow necks and run together instead of fading.</p>
 
 <p align="center">
   <a href="https://code.claude.com/docs/en/skills"><img src="https://img.shields.io/badge/Claude_Code-skill-141414?style=flat-square&logo=claude&logoColor=white" alt="Claude Code skill"></a>
@@ -34,7 +34,7 @@
 
 ---
 
-Ask Claude for dot art that moves, and Morph has it draw each state as its own picture, then melt one into the next. A sun becomes a moon, a padlock opens, a terminal turns into three search results. Nothing sways, twists or cross-fades: both pictures are laid into one raster, blurred and cut back to a hard edge, and every dot eases its size and fill toward the result, so edges swell and drain.
+Ask Claude for dot art that moves, and Morph has it draw each state as its own picture, then melt each one into the next: two for a hover, as many as the story needs for a loop. A sun becomes a moon, a padlock opens, a terminal turns into three search results. Nothing sways, twists or cross-fades: both pictures are laid into one raster, blurred and cut back to a hard edge, and every dot eases its size and fill toward the result, so edges swell and drain.
 
 Claude draws every picture with the canvas API, reads it back into dots, checks every melt for a frame that goes blank, and wires the result to hover, focus or a loop.
 
@@ -123,7 +123,9 @@ Claude Code picks up new skills in a running session. If the `skills` folder did
 
 ## Usage
 
-Type `/morph` and say what the pictures are and where they go:
+Type `/morph` and say what the pictures are and where they go. Two pictures make a hover piece; three or more make a loop or a story.
+
+You don't need an image to start. Describe each picture in words, and Claude draws a first version; then refine it together ("thicker walls", "open the lock wider", "hold the terminal longer") until it reads right. If you do have an image or a sketch, share it and Claude draws from it.
 
 ```text
 /morph a sun that melts into a moon on hover
