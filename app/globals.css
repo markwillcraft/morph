@@ -352,35 +352,82 @@ h2.ruled .count {
   font-variant-numeric: tabular-nums;
 }
 
-.questions details {
+.question {
   border-bottom: 1px solid var(--faint);
 }
 
-.questions summary {
+.question-toggle {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
+  width: 100%;
   padding: 14px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
-  list-style: none;
 }
 
-.questions summary::-webkit-details-marker {
-  display: none;
-}
-
-.questions summary::after {
-  content: "+";
+/* A plus drawn in two strokes; the upright one turns flat when the question opens. */
+.question-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
   color: var(--muted);
 }
 
-.questions details[open] summary::after {
-  content: "−";
+.question-icon::before,
+.question-icon::after {
+  content: "";
+  position: absolute;
+  inset: 4.5px 0;
+  background: currentColor;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.questions details p {
+.question-icon::after {
+  transform: rotate(90deg);
+}
+
+.question[data-open] .question-icon::after {
+  transform: rotate(0deg);
+}
+
+.question-toggle:hover .question-icon {
+  color: var(--ink);
+}
+
+/* Opens by its own height, without measuring: the row grows from 0fr to 1fr. */
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.25s ease;
+}
+
+.question[data-open] .answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.answer-inner {
+  overflow: hidden;
+}
+
+.answer p {
   padding-bottom: 14px;
   color: var(--muted);
+}
+
+/* The list already keeps room for an open answer, so the footer needs less of a gap. */
+.questions + footer {
+  margin-top: 48px;
 }
 
 footer {

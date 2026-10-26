@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeroFigure } from "@/components/hero-figure";
 import { ProductPiece } from "@/components/product-piece";
 import { CopyButton } from "@/components/copy-button";
+import { Questions } from "@/components/questions";
 import { Top } from "@/components/top";
 import { INSTALL_COMMANDS, INSTALL_PROMPT } from "@/lib/install";
 import { HERO } from "@/pictures/hero";
@@ -138,12 +139,7 @@ export default function Home() {
           <h2 className="ruled">
             Questions<span className="count">{QUESTIONS.length}</span>
           </h2>
-          {QUESTIONS.map(({ question, answer }) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
-          ))}
+          <Questions questions={QUESTIONS} />
         </section>
 
         <footer>
