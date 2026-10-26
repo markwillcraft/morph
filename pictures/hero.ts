@@ -17,8 +17,11 @@ const DURATION = 15;
 const TAU = Math.PI * 2;
 const { columns: COLS, rows: ROWS } = HERO;
 
+// Played at half the pace the scene was drawn at, so each mover can be followed across.
+const PACE = 0.5;
+
 /** One beat that holds for the whole loop; it closes on itself, so the melt back to its start has nothing to do. */
-export const HERO_TIMING: LoopTiming = { hold: DURATION, melt: 0.05 };
+export const HERO_TIMING: LoopTiming = { hold: DURATION / PACE, melt: 0.05 };
 
 type Ctx = CanvasRenderingContext2D;
 
@@ -260,7 +263,10 @@ function bay(ctx: Ctx, t: number) {
 
 const theBay: Beat = {
   name: "The bay",
-  picture: (seconds) => pictureFromCanvas(HERO, (context) => bay(context, ((seconds % DURATION) + DURATION) % DURATION)),
+  picture: (seconds) => {
+    const t = seconds * PACE;
+    return pictureFromCanvas(HERO, (context) => bay(context, ((t % DURATION) + DURATION) % DURATION));
+  },
 };
 
 export const heroBeats = (): Beat[] => [theBay];

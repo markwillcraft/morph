@@ -8,6 +8,8 @@ import { PRODUCT, PRODUCT_PITCH, PRODUCTS, type Ink, type Story } from "@/pictur
 
 // Longer than this between frames and the dots are placed outright instead of eased.
 const LONGEST_STEP = 0.1;
+// The stories are timed as context.dev plays them; here they run at half that pace, so each step can be read.
+const PACE = 0.5;
 // The greys Context.dev sets its picture text in: darker than the page's muted grey, since the text is small.
 const TEXT_COLORS = { ink: "#27272a", muted: "#52525b" };
 
@@ -79,7 +81,7 @@ function playStory(canvas: HTMLCanvasElement, story: Story) {
   const tick = (now: number) => {
     const step = last ? (now - last) / 1000 : 0;
     last = now;
-    seconds += Math.min(step, LONGEST_STEP);
+    seconds += Math.min(step, LONGEST_STEP) * PACE;
     const { picture } = loop.at(seconds);
     if (step > 0 && step <= LONGEST_STEP) field.ease(picture, step);
     else field.place(picture);
