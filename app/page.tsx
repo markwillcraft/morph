@@ -118,7 +118,7 @@ export default function Home() {
           <CodeBlock caption="Claude Code" text={INSTALL_COMMANDS.claude} />
           <CodeBlock caption="Codex" text={INSTALL_COMMANDS.codex} />
           <p style={{ marginTop: 20 }}>
-            Or download <a href="/morph.zip">morph.zip</a> and unzip it into your agent&apos;s skills folder:{" "}
+            Or download <a href="/morph/morph.zip">morph.zip</a> and unzip it into your agent&apos;s skills folder:{" "}
             <code>~/.claude/skills</code> for Claude Code, <code>~/.agents/skills</code> for Codex.
           </p>
         </section>
@@ -152,7 +152,7 @@ export default function Home() {
             Sans. The product pictures and the collection&apos;s covers are Context.dev&apos;s, from its product cards and blog.
           </p>
           <p>
-            <Link href="/how-i-built-it">How I built it</Link> · <a href="/morph.zip">morph.zip</a> ·{" "}
+            <Link href="/how-i-built-it">How I built it</Link> · <a href="/morph/morph.zip">morph.zip</a> ·{" "}
             <a href="https://x.com/iangerado">@iangerado on X</a>
           </p>
         </footer>

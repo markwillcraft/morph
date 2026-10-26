@@ -48,7 +48,7 @@ export function InstallCard() {
         <CopyButton text={INSTALL_PROMPT} label="Copy" className="button button-primary" />
       </div>
       <p className="install-card-alt">
-        Or <a href="/morph.zip">download the ZIP</a>.
+        Or <a href="/morph/morph.zip">download the ZIP</a>.
       </p>
     </aside>
   );

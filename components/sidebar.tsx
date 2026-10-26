@@ -18,7 +18,7 @@ export function Sidebar({ current }: { current: PageHref }) {
       </nav>
       <nav aria-label="Get it">
         <p className="sidebar-heading">Get it</p>
-        <a href="/morph.zip">morph.zip</a>
+        <a href="/morph/morph.zip">morph.zip</a>
         <a href="https://github.com/markwillcraft/morph">GitHub</a>
         <a href="https://x.com/iangerado">@iangerado</a>
       </nav>

@@ -70,7 +70,7 @@ No API keys and nothing to install: the kit is plain TypeScript with no dependen
 
 ## Gallery
 
-Everything here is on the site's [collection](app/collection/page.tsx) page, which has two shelves: four stories and six pairs. All of it is [Context.dev](https://context.dev)'s artwork, rebuilt on Morph's kit.
+Everything here is on the site's [collection](app/collection/page.tsx) page, which has three shelves: four stories, six moving covers and ten post covers. All of it is [Context.dev](https://context.dev)'s artwork, rebuilt on Morph's kit, and every piece has a **Copy** button for a `/morph` prompt that makes one like it.
 
 ### Stories
 
@@ -95,20 +95,28 @@ Context.dev's four product cards. Each is several pictures in a row, played whil
   </tr>
 </table>
 
-### Pairs
+### Moving covers
 
-Context.dev's six blog covers. Each melts into its second picture on hover and back when the pointer leaves.
+Context.dev's six blog covers, played as its blog plays them. Hover runs each scene to its second picture, keeps its parts moving while held, and springs them back to rest on leaving. Every frame is drawn in greys with the canvas API and read into dots.
 
 <p align="center">
-  <img src=".github/assets/collection-hover.webp" width="640" alt="The six collection covers, each melting under the pointer and back: a padlock opens to let requests through, orbits close round a thought, three pages fuse into one, two agent icons become the Context.dev mark, image tiles join into one picture, and a source page becomes records.">
+  <img src=".github/assets/collection-hover.webp" width="640" alt="The six moving covers hovered in turn: a padlock opens and its ring of requests goes round, planets circle a sphere that becomes a brain, three pages fuse into one, two agent icons become the Context.dev mark, image tiles join into one picture, and a highlight walks down a table of records.">
 </p>
 
-<p align="center"><sub>Blocked to let through, orbits to a thought, pages to one page, two agents to one, tiles to one picture, source to records. Each cover scene is drawn in greys with the canvas API at both ends of its hover, and read into dots.</sub></p>
+<p align="center"><sub>Blocked to let through, orbits to a thought, pages to one page, two agents to one, tiles to one picture, source to records.</sub></p>
+
+### Post covers
+
+Ten of Context.dev's blog post covers. Each stores its cover and its hover picture as dots, and the kit melts between them. These ten are the ones whose melt keeps its mass under the kit's check.
+
+<p align="center">
+  <img src=".github/assets/collection-posts.webp" width="640" alt="Post covers hovered in turn, each melting into its second picture and back: a crowned 10 becomes a trophy, stairs become a person, a megaphone and chart become a pie chart, GO becomes an arrow, a SOC 2 shield becomes a padlock, and a sitemap becomes a brain.">
+</p>
 
 <table>
   <tr>
-    <td width="50%"><img src=".github/assets/collection-mono.png" alt="The six collection covers in black dots: a padlock ringed by requests, planets on orbits, three pages, two agent icons, a grid of image tiles, and a source page beside records."></td>
-    <td width="50%"><img src=".github/assets/collection-blue.png" alt="The same six covers in blue dots."></td>
+    <td width="50%"><img src=".github/assets/collection-mono.png" alt="The ten post covers in black dots."></td>
+    <td width="50%"><img src=".github/assets/collection-blue.png" alt="The same ten covers in blue dots."></td>
   </tr>
   <tr>
     <td><sub>Dots paint in the canvas's CSS <code>color</code>.</sub></td>
@@ -124,7 +132,7 @@ Three kinds of figure, all on one kit.
 
 | Kind | What it is | Kit | On the site |
 |---|---|---|---|
-| **Toggle** | Two pictures. Hover, focus or press melts to the second; letting go melts back. It only draws while dots are moving. | `playToggle(canvas, grid, rest, active)` | the collection's [six pairs](pictures/collection.ts) |
+| **Toggle** | Two pictures. Hover, focus or press melts to the second; letting go melts back. It only draws while dots are moving. | `playToggle(canvas, grid, rest, active)` | the collection's [post covers](pictures/context/posts.ts) |
 | **Loop** | A row of beats, each a picture that is a pure function of time. Each holds, then melts into the next, and the last melts into the first. It pauses off screen. | `playLoop(canvas, grid, new Loop(grid, beats))` | the [bay](pictures/hero.ts) |
 | **Story** | A loop where each beat sets its own hold and melt, so one picture can stay while a question is typed and the next can arrive at once. | `Beat.hold`, `Beat.melt` | the [four stories](pictures/products.ts), on the home page and in the collection |
 
@@ -227,8 +235,8 @@ morph/
 │   └── references/           read when a step needs more: pictures, the melt, checking
 ├── app/                      the site (Next.js): home, collection, how I built it
 ├── components/               the players, sidebar and colour switch
-├── pictures/                 the site's pictures: the bay, the six pairs, the four stories
-│   └── context/              Context.dev's product pictures, text and blog cover scenes
+├── pictures/                 the site's pictures: the bay, the four stories, the six moving covers
+│   └── context/              Context.dev's product pictures and text, blog cover scenes and post covers
 └── scripts/zip-skill.mjs     packs skill/morph into public/morph.zip
 ```
 
@@ -254,7 +262,7 @@ It needs Node.js 22 or later.
 
 ## Credits
 
-Made by Ian Gerado, [@iangerado](https://x.com/iangerado), with Claude Code. The Search, Scrape, Research and Monitor pictures, their text, the six blog covers and the Context.dev mark are [Context.dev](https://context.dev)'s, from its product cards and blog. Set in Rethink Sans, with the product text in Doto.
+Made by Ian Gerado, [@iangerado](https://x.com/iangerado), with Claude Code. The Search, Scrape, Research and Monitor pictures, their text, the blog covers and the Context.dev mark are [Context.dev](https://context.dev)'s, from its product cards and blog. Set in Rethink Sans, with the product text in Doto.
 
 ## License
 
