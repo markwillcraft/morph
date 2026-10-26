@@ -142,7 +142,7 @@ export default function Home() {
         <footer>
           <p>
             Made by Ian Gerado, <a href="https://x.com/iangerado">@iangerado</a>. Built with Claude Code. Set in Rethink
-            Sans. The product pictures are Context.dev&apos;s, from the cards on its site.
+            Sans. The product pictures and the collection&apos;s covers are Context.dev&apos;s, from its product cards and blog.
           </p>
           <p>
             <Link href="/how-i-built-it">How I built it</Link> · <a href="/morph.zip">morph.zip</a> ·{" "}
