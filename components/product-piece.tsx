@@ -8,6 +8,8 @@ import { PRODUCT, PRODUCT_PITCH, PRODUCTS, type Ink, type Story } from "@/pictur
 
 // Longer than this between frames and the dots are placed outright instead of eased.
 const LONGEST_STEP = 0.1;
+// The greys Context.dev sets its picture text in: darker than the page's muted grey, since the text is small.
+const TEXT_COLORS = { ink: "#27272a", muted: "#52525b" };
 
 /**
  * Plays a product's story while it is pointed at, and holds wherever it got to when the pointer leaves. Before anyone
@@ -24,7 +26,7 @@ function playStory(canvas: HTMLCanvasElement, story: Story) {
 
   const paint = () => {
     const style = getComputedStyle(canvas);
-    const colors = { ink: style.getPropertyValue("--ink").trim(), muted: style.getPropertyValue("--muted").trim() };
+    const colors = TEXT_COLORS;
     const pitch = canvas.width / PRODUCT.columns;
     context.setTransform(1, 0, 0, 1, 0, 0);
     context.clearRect(0, 0, canvas.width, canvas.height);

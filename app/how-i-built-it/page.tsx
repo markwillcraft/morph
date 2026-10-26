@@ -131,8 +131,9 @@ export default function HowIBuiltIt() {
 
       <Section number="07" title="Time in, frame out">
         <p>
-          Each beat holds for 2.4 s and melts for 1.1 s. Every picture is a function of time, so any second of a loop can
-          be drawn on its own. That is what makes a single frame checkable and a loop recordable.
+          A beat holds for 2.4 s and melts for 1.1 s, unless it sets its own: a story like Search holds the terminal while
+          the question is typed. Every picture is a function of time, so any second of a loop can be drawn on its own.
+          That is what makes a single frame checkable and a loop recordable.
         </p>
         <Code file="kit/loop.ts">{excerpt("kit/loop.ts", "at(seconds")}</Code>
       </Section>

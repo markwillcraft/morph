@@ -24,7 +24,8 @@ const QUESTIONS = [
   },
   {
     question: "Light or dark?",
-    answer: "Either. The dots paint in the canvas's CSS colour, so they follow your theme, like the switch at the top of this page.",
+    answer:
+      "Either. The dots paint in the canvas's CSS colour, so they follow your theme. The switch at the top of this page swaps that colour.",
   },
   {
     question: "How do I get the best result?",
